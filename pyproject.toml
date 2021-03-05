@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-shopify-sync"
-version = "2.2.10"
+version = "2.2.11"
 description = "A package for synchronising Django models with Shopify resources."
 authors = ["David Burke <dburke@thelabnyc.com>"]
 license = "MIT"
