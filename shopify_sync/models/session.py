@@ -4,6 +4,7 @@ from django.db import models
 from shopify import Session as ShopifySession, ShopifyResource
 from contextlib import contextmanager
 
+API_VERSION = '2020-07'
 
 class Session(models.Model):
     token = models.CharField(max_length=255)
@@ -13,7 +14,7 @@ class Session(models.Model):
         app_label = 'shopify_sync'
 
     def to_shopify(self):
-        shopify_session = ShopifySession(self.site, '2020-01', self.token)
+        shopify_session = ShopifySession(self.site, API_VERSION, self.token)
         # pyactiveresource has a defined __setattr__
         shopify_session.__dict__['model'] = self
         shopify_session.__dict__['session'] = shopify_session

@@ -1,6 +1,7 @@
 from shopify_sync.models.base import ShopifyResourceManager
 from shopify_sync.models import Session
 from .test_helpers import TestCase
+from ..models.session import API_VERSION
 import shopify
 
 
@@ -20,29 +21,29 @@ class PaginationCase(TestCase):
 
         self.fake(
             'pagination_1',
-            url='https://test.myshopify.com/admin/api/2020-01/shopify_foos.json?limit=2',
+            url=f'https://test.myshopify.com/admin/api/{API_VERSION}/shopify_foos.json?limit=2',
             method='GET',
             headers={'X-shopify-access-token': 'test'},
             body='{"products": [{ "id": 1 },{ "id": 2 }]}',
             response_headers={
-                'Link': '<https://test.myshopify.com/admin/api/2020-01/shopify_foos.json?limit=2&page_info=abcde1>; rel="next"'
+                'Link': f'<https://test.myshopify.com/admin/api/{API_VERSION}/shopify_foos.json?limit=2&page_info=abcde1>; rel="next"'
             }
         )
 
         self.fake(
             'pagination_2',
-            url='https://test.myshopify.com/admin/api/2020-01/shopify_foos.json?limit=2&page_info=abcde1',
+            url=f'https://test.myshopify.com/admin/api/{API_VERSION}/shopify_foos.json?limit=2&page_info=abcde1',
             method='GET',
             headers={'X-shopify-access-token': 'test'},
             body='{"products": [{ "id": 3 },{ "id": 4 }]}',
             response_headers={
-                'Link': '<https://test.myshopify.com/admin/api/2020-01/shopify_foos.json?limit=2&page_info=abcde2>; rel="next"'
+                'Link': f'<https://test.myshopify.com/admin/api/{API_VERSION}/shopify_foos.json?limit=2&page_info=abcde2>; rel="next"'
             }
         )
 
         self.fake(
             'pagination_3',
-            url='https://test.myshopify.com/admin/api/2020-01/shopify_foos.json?limit=2&page_info=abcde2',
+            url=f'https://test.myshopify.com/admin/api/{API_VERSION}/shopify_foos.json?limit=2&page_info=abcde2',
             method='GET',
             headers={'X-shopify-access-token': 'test'},
             body='{"products": [{ "id": 5 }]}',
