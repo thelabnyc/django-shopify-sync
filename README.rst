@@ -57,3 +57,7 @@ the `changed_product` will get a local copy of the shopify_resource and then
 do a `.reload()` on it so that we make a request to shopify. Then we sync
 that back with our database.
 
+Contributing
+============
+
+This project is in maintenance mode. Please do not post feature requests unless you intend to both implement them in a merge request and generally help maintain the project. A great first step would be a merge request to update base packages and ensure we are compatible with new Django versions.
