@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-shopify-sync"
-version = "2.2.11"
+version = "2.2.13"
 description = "A package for synchronising Django models with Shopify resources."
 authors = ["David Burke <dburke@thelabnyc.com>"]
 license = "MIT"
@@ -17,7 +17,7 @@ packages = [
 python = "^3.7"
 django = ">=2.2"
 django-shopify-webhook = ">=0.2.6"
-ShopifyAPI = ">=7.0.2"
+ShopifyAPI = ">=8.4.1"
 jsonfield = ">=0.9.22"
 
 [tool.poetry.dev-dependencies]

@@ -236,7 +236,7 @@ description = "ActiveResource for Python"
 name = "pyactiveresource"
 optional = false
 python-versions = "*"
-version = "2.2.1"
+version = "2.2.2"
 
 [package.dependencies]
 six = "*"
@@ -249,6 +249,21 @@ name = "pygments"
 optional = false
 python-versions = ">=3.5"
 version = "2.6.1"
+
+[[package]]
+category = "main"
+description = "JSON Web Token implementation in Python"
+marker = "python_version >= \"3.6\""
+name = "pyjwt"
+optional = false
+python-versions = ">=3.6"
+version = "2.1.0"
+
+[package.extras]
+crypto = ["cryptography (>=3.3.1,<4.0.0)"]
+dev = ["sphinx", "sphinx-rtd-theme", "zope.interface", "cryptography (>=3.3.1,<4.0.0)", "pytest (>=6.0.0,<7.0.0)", "coverage (5.0.4)", "mypy", "pre-commit"]
+docs = ["sphinx", "sphinx-rtd-theme", "zope.interface"]
+tests = ["pytest (>=6.0.0,<7.0.0)", "coverage (5.0.4)"]
 
 [[package]]
 category = "dev"
@@ -283,12 +298,16 @@ description = "Shopify API for Python"
 name = "shopifyapi"
 optional = false
 python-versions = "*"
-version = "8.0.1"
+version = "8.4.1"
 
 [package.dependencies]
 PyYAML = "*"
-pyactiveresource = ">=2.2.0"
+pyactiveresource = ">=2.2.2"
 six = "*"
+
+[package.dependencies.PyJWT]
+python = ">=3.6"
+version = ">=2.0.0"
 
 [[package]]
 category = "main"
@@ -333,7 +352,7 @@ python-versions = "*"
 version = "0.2.5"
 
 [metadata]
-content-hash = "8f7572af959c9f7e8c3510225fd6191ea6b07cb471a17c46c2b761da006c1dad"
+content-hash = "b39404ab2d01b3230ea233cb6fbab9c4f033f381653ff6c6a1333a48cf94347e"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -441,11 +460,15 @@ ptyprocess = [
     {file = "ptyprocess-0.6.0.tar.gz", hash = "sha256:923f299cc5ad920c68f2bc0bc98b75b9f838b93b599941a6b63ddbc2476394c0"},
 ]
 pyactiveresource = [
-    {file = "pyactiveresource-2.2.1.tar.gz", hash = "sha256:8de445c65608133c8d2135a81d44ce4d73cc614204e8b1814c6f04c4d3d73b12"},
+    {file = "pyactiveresource-2.2.2.tar.gz", hash = "sha256:2f03844652dc206d9a086b0b15564d78dcec55786fa5fe0055dd2119e0dffdd8"},
 ]
 pygments = [
     {file = "Pygments-2.6.1-py3-none-any.whl", hash = "sha256:ff7a40b4860b727ab48fad6360eb351cc1b33cbf9b15a0f689ca5353e9463324"},
     {file = "Pygments-2.6.1.tar.gz", hash = "sha256:647344a061c249a3b74e230c739f434d7ea4d8b1d5f3721bc0f3558049b38f44"},
+]
+pyjwt = [
+    {file = "PyJWT-2.1.0-py3-none-any.whl", hash = "sha256:934d73fbba91b0483d3857d1aff50e96b2a892384ee2c17417ed3203f173fca1"},
+    {file = "PyJWT-2.1.0.tar.gz", hash = "sha256:fba44e7898bbca160a2b2b501f492824fc8382485d3a6f11ba5d0c1937ce6130"},
 ]
 python-dateutil = [
     {file = "python-dateutil-2.8.1.tar.gz", hash = "sha256:73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"},
@@ -466,10 +489,12 @@ pyyaml = [
     {file = "PyYAML-5.3.1-cp37-cp37m-win_amd64.whl", hash = "sha256:73f099454b799e05e5ab51423c7bcf361c58d3206fa7b0d555426b1f4d9a3eaf"},
     {file = "PyYAML-5.3.1-cp38-cp38-win32.whl", hash = "sha256:06a0d7ba600ce0b2d2fe2e78453a470b5a6e000a985dd4a4e54e436cc36b0e97"},
     {file = "PyYAML-5.3.1-cp38-cp38-win_amd64.whl", hash = "sha256:95f71d2af0ff4227885f7a6605c37fd53d3a106fcab511b8860ecca9fcf400ee"},
+    {file = "PyYAML-5.3.1-cp39-cp39-win32.whl", hash = "sha256:ad9c67312c84def58f3c04504727ca879cb0013b2517c85a9a253f0cb6380c0a"},
+    {file = "PyYAML-5.3.1-cp39-cp39-win_amd64.whl", hash = "sha256:6034f55dab5fea9e53f436aa68fa3ace2634918e8b5994d82f3621c04ff5ed2e"},
     {file = "PyYAML-5.3.1.tar.gz", hash = "sha256:b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"},
 ]
 shopifyapi = [
-    {file = "ShopifyAPI-8.0.1.tar.gz", hash = "sha256:94eb70581d9a2ee7327bfe80a453d07b7a2c1c9379dac5202ba2bcad4a9faf3a"},
+    {file = "ShopifyAPI-8.4.1.tar.gz", hash = "sha256:480eaf3da3c19a524cd3a34a4c7dc7f59cae268b362f61fd73d2f87de55d0cd2"},
 ]
 six = [
     {file = "six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"},
