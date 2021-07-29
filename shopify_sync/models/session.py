@@ -4,7 +4,7 @@ from django.db import models
 from shopify import Session as ShopifySession, ShopifyResource
 from contextlib import contextmanager
 
-API_VERSION = '2020-07'
+API_VERSION = '2021-04'
 
 class Session(models.Model):
     token = models.CharField(max_length=255)
