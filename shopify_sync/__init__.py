@@ -1,4 +1,4 @@
-VERSION     = (2, 2, 14)
+VERSION     = (2, 2, 15)
 __version__ = '.'.join(map(str, VERSION))
 __author__  = 'David Burke'
 
