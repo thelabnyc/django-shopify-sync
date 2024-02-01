@@ -188,7 +188,7 @@ django = ">=1.11.0"
 [[package]]
 category = "dev"
 description = "A Python Parser"
-marker = "python_version >= \"3.7\" and python_version < \"3.11\""
+marker = "python_version > \"3.6\" and python_version < \"3.11\" or python_version >= \"3.11\""
 name = "parso"
 optional = false
 python-versions = ">=3.6"
@@ -242,7 +242,7 @@ version = "2.9.5"
 [[package]]
 category = "dev"
 description = "Run a subprocess in a pseudo terminal"
-marker = "python_version >= \"3.7\" and python_version < \"3.11\" and sys_platform != \"win32\""
+marker = "python_version > \"3.6\" and python_version < \"3.11\" and sys_platform != \"win32\" or python_version >= \"3.11\" and sys_platform != \"win32\""
 name = "ptyprocess"
 optional = false
 python-versions = "*"
@@ -318,7 +318,7 @@ description = "Shopify API for Python"
 name = "shopifyapi"
 optional = false
 python-versions = "*"
-version = "12.3.0"
+version = "12.4.0"
 
 [package.dependencies]
 PyJWT = ">=2.0.0"
@@ -354,7 +354,7 @@ version = "2.0.1"
 [[package]]
 category = "dev"
 description = "Traitlets Python configuration system"
-marker = "python_version > \"3.6\" and python_version < \"3.11\" or python_version >= \"3.11\" or python_version >= \"3.7\" and python_version < \"3.11\""
+marker = "python_version > \"3.6\" and python_version < \"3.11\" or python_version >= \"3.11\""
 name = "traitlets"
 optional = false
 python-versions = ">=3.7"
@@ -376,7 +376,7 @@ version = "4.4.0"
 [[package]]
 category = "dev"
 description = "Measures the displayed width of unicode strings in a terminal"
-marker = "python_version >= \"3.7\" and python_version < \"3.11\""
+marker = "python_version > \"3.6\" and python_version < \"3.11\" or python_version >= \"3.11\""
 name = "wcwidth"
 optional = false
 python-versions = "*"

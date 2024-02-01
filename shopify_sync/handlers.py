@@ -30,6 +30,7 @@ def get_topic_action(topic):
         'create': 'sync_one',
         'update': 'sync_one',
         'updated': 'sync_one',
+        'delete': 'delete',
         'fulfilled': 'sync_one',
     }
     return mapping.get(topic, None)
@@ -57,4 +58,6 @@ def webhook_received_handler(sender, domain, topic, data, **kwargs):
     # Execute the desired action.
     if model_action == 'sync_one':
         model.objects.sync_one(shopify_resource)
+    elif model_action == 'delete':
+        model.objects.get(pk=data["id"]).delete()
     assert model_action == 'sync_one', "The model action has to be sync_one"
