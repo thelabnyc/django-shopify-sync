@@ -2,7 +2,6 @@ from __future__ import unicode_literals
 
 import logging
 from copy import copy
-import math
 
 from django.core.serializers.json import DjangoJSONEncoder
 from django.db import models, utils
@@ -211,7 +210,10 @@ class ShopifyResourceManager(models.Manager):
                                          sync_meta=sync_meta)
                 instances.append(instance)
             except Exception as e:
-                log.error(f'Exception during sync_many of {shopify_resource}: {e}')
+                if type(e) == utils.IntegrityError and "duplicate key value" in e.args[0]:
+                    log.warning(f'Exception during sync_many of {shopify_resource}: {e}')
+                else:
+                    log.error(f'Exception during sync_many of {shopify_resource}: {e}')
 
         return instances
 

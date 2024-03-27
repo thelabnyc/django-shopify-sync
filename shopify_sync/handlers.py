@@ -32,6 +32,7 @@ def get_topic_action(topic):
         'updated': 'sync_one',
         'delete': 'delete',
         'fulfilled': 'sync_one',
+        'orders/paid': 'sync_one',
     }
     return mapping.get(topic, None)
 
