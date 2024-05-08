@@ -2,7 +2,7 @@
 name = "django-shopify-sync"
 version = "2.2.19"
 description = "A package for synchronizing Django models with Shopify resources."
-authors = ["David Burke <dburke@thelabnyc.com>"]
+authors = ["thelab <thelabdev@thelab.co>"]
 license = "MIT"
 homepage = "https://gitlab.com/thelabnyc/django-shopify-sync"
 repository = "https://gitlab.com/thelabnyc/django-shopify-sync"
