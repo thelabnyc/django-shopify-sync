@@ -50,10 +50,10 @@ that back with our database.
 
 ## How to publish a new version
 
-Use [commitizen](https://commitizen-tools.github.io/commitizen/commands/bump/).
+Use [commitizen](https://commitizen-tools.github.io/commitizen/commands/bump/) via the [bin/publish.sh](bin/publish.sh) script.
 
 ```sh
-cz bump
+./bin/publish.sh
 ```
 
 ## Contributing
