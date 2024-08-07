@@ -7,7 +7,6 @@ import shopify
 
 
 class TestCase(unittest.TestCase):
-
     def setUp(self):
         ActiveResource.site = None
         ActiveResource.headers = None
@@ -32,7 +31,7 @@ class TestCase(unittest.TestCase):
 
     def fake(self, endpoint, **kwargs):
         body = kwargs.pop("body", None) or self.load_fixture(endpoint)
-        format = kwargs.pop("format", "json")
+        # format = kwargs.pop("format", "json")
         method = kwargs.pop("method", "GET")
         prefix = kwargs.pop("prefix", "/admin/api/unstable")
 

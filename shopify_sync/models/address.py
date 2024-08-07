@@ -1,7 +1,5 @@
 from __future__ import unicode_literals
 
-import uuid
-
 import shopify
 from django.db import models
 

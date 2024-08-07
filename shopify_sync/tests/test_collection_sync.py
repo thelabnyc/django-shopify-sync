@@ -1,10 +1,8 @@
 from . import SyncTestCase
-from ..models import CustomCollection, SmartCollection
 from .recipes import SessionRecipe
 
 
 class CollectionSyncTestCase(SyncTestCase):
-
     def test_smart_collection_created_on_create_webhook(self):
         # Create a test user.
         session = SessionRecipe.make(id=1)

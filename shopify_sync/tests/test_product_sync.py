@@ -1,10 +1,8 @@
 from . import SyncTestCase
-from ..models import Product
 from .recipes import SessionRecipe
 
 
 class ProductSyncTestCase(SyncTestCase):
-
     def test_product_created_on_create_webhook(self):
         # Create a test user.
         session = SessionRecipe.make(id=1)

@@ -251,7 +251,7 @@ class ShopifyResourceManager(models.Manager):
                 instances.append(instance)
             except Exception as e:
                 if (
-                    type(e) == utils.IntegrityError
+                    type(e) is utils.IntegrityError
                     and "duplicate key value" in e.args[0]
                 ):
                     log.warning(
