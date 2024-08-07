@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 from django.db import models
 import shopify
 
@@ -7,7 +5,6 @@ from .base import ShopifyResourceManager, ShopifyResourceModel
 
 
 class ShopManager(ShopifyResourceManager):
-
     def fetch_all(self, user, **kwargs):
         """
         Override the default fetch_all() generator function, as there is no traditional API endpoint for fetching Shop

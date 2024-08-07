@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 from pprint import pformat
 from unittest import mock
 
@@ -9,7 +7,6 @@ from .recipes import SessionRecipe
 
 
 class JSONEncodingTestCase(SyncTestCase):
-
     @mock.patch("shopify.resources.Metafield.find")
     def test_json_encoding(self, mock_find):
         # Create a test user.

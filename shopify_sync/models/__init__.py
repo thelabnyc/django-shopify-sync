@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 from .address import Address  # NOQA
 from .carrier_service import CarrierService  # NOQA
 from .collect import Collect  # NOQA

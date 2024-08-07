@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 import logging
 import sys
 
@@ -9,18 +7,6 @@ import django
 log = logging.getLogger()
 log.addHandler(logging.StreamHandler())
 log.setLevel(10)
-
-import traceback
-
-
-def log_traceback(ex, ex_traceback=None):
-    if ex_traceback is None:
-        ex_traceback = ex.__traceback__
-    tb_lines = [
-        line.rstrip("\n")
-        for line in traceback.format_exception(ex.__class__, ex, ex_traceback)
-    ]
-    exception_logger.log(tb_lines)
 
 
 if __name__ == "__main__":
