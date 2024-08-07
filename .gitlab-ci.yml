@@ -1,33 +1,28 @@
-image: python:3.7
-
-variables:
-  POETRY_VIRTUALENVS_CREATE: "false"
-  PIP_DISABLE_PIP_VERSION_CHECK: "on"
-  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
-
 stages:
   - test
-  - deploy
+  - release
 
-before_script:
-  - pip install poetry
-  - poetry install
+services: []
+
+include:
+  - component: gitlab.com/thelabnyc/thelab-ci-components/precommit@0.0.1
+  - component: gitlab.com/thelabnyc/thelab-ci-components/publish-gitlab-release@0.0.1
+  - component: gitlab.com/thelabnyc/thelab-ci-components/publish-to-pypi@0.0.1
 
 test:
   stage: test
+  image: "registry.gitlab.com/thelabnyc/python:${IMAGE}"
   services:
-    - name: postgres:10
+    - name: postgres:16
       alias: db
   script:
-    - python test.py
-
-deploy:
-  stage: deploy
-  script:
-    - poetry config pypi-token.pypi $POETRY_PYPI_API_TOKEN
-    - poetry publish --build
-  only:
-    - tags
-  artifacts:
-    paths:
-      - dist/
+    - pip install tox
+    - tox
+  parallel:
+    matrix:
+      - IMAGE: py310
+        TOX_SKIP_ENV: "^(?!py310-)"
+      - IMAGE: py311
+        TOX_SKIP_ENV: "^(?!py311-)"
+      - IMAGE: py312
+        TOX_SKIP_ENV: "^(?!py312-)"

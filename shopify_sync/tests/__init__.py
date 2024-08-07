@@ -1,9 +1,8 @@
-from __future__ import unicode_literals
-
-from shopify_webhook.tests import WebhookTestCase
 from datetime import datetime
-from dateutil import parser
 from decimal import Decimal
+
+from dateutil import parser
+from shopify_webhook.tests import WebhookTestCase
 
 
 class SyncTestCase(WebhookTestCase):
@@ -16,7 +15,7 @@ class SyncTestCase(WebhookTestCase):
         Check that the given data has been synchronised locally for the given user and model class.
         """
 
-        instance = model.objects.get(id=data['id'], session=session)
+        instance = model.objects.get(id=data["id"], session=session)
 
         # Check all direct fields on the instance were synchronised across correctly.
         for field in model.get_default_fields():
@@ -36,7 +35,14 @@ class SyncTestCase(WebhookTestCase):
 
                 # Assert values are equal.
                 if expected_value != actual_value:
-                    print("Field '%s' expected value is '%s' not '%s'" % (field, expected_value, actual_value,))
+                    print(
+                        "Field '%s' expected value is '%s' not '%s'"
+                        % (
+                            field,
+                            expected_value,
+                            actual_value,
+                        )
+                    )
                 self.assertEqual(expected_value, actual_value)
 
         # Check all child fields on the instance were synchronised correctly.

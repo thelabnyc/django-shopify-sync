@@ -1,4 +1,4 @@
-{  
+{
   "body_html":"this is a smart one.",
   "disjunctive":false,
   "handle":"smart-collection",
@@ -9,8 +9,8 @@
   "template_suffix":null,
   "title":"Smart Collection",
   "updated_at":"2014-09-10T12:01:41-04:00",
-  "rules":[  
-    {  
+  "rules":[
+    {
       "column":"title",
       "relation":"contains",
       "condition":"Buttons"

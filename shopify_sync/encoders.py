@@ -1,7 +1,5 @@
-from __future__ import unicode_literals
-
-import shopify
 from django.core.serializers.json import DjangoJSONEncoder
+import shopify
 
 
 def empty_list():
@@ -15,6 +13,6 @@ class ShopifyDjangoJSONEncoder(DjangoJSONEncoder):
     def default(self, obj):
         if isinstance(obj, (shopify.Receipt, shopify.Fulfillment)):
             return str(obj)
-        if isinstance(obj, shopify.ShopifyResource) and getattr(obj, 'attributes'):
+        if isinstance(obj, shopify.ShopifyResource) and getattr(obj, "attributes"):
             return obj.attributes
         return super(ShopifyDjangoJSONEncoder, self).default(obj)
