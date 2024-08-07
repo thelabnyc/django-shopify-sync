@@ -1,5 +1,24 @@
 # Changes
 
+## v3.0.0a0 (2024-08-07)
+
+### BREAKING CHANGE
+
+- Removed `shopify_sync.VERSION`, `shopify_sync.__version__`,
+and `shopify_sync.__author__`
+
+### Feat
+
+- enable renovatebot
+
+### Fix
+
+- tweak cz config
+- **deps**: update pyyaml
+
+
+- use commitizen for versioning
+
 ## v2.3.0 (2024-08-06)
 
 ## v2.2.19 (2024-03-29)
