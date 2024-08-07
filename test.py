@@ -54,12 +54,12 @@ if __name__ == "__main__":
                     "class": "logging.StreamHandler",
                 }
             },
-            #    'loggers': {
-            # 	'django.db.backends': {
-            #           'level': 'DEBUG',
-            #            'handlers': ['console'],
-            #         }
-            #    }
+            # "loggers": {
+            #     "django.db.backends": {
+            #         "level": "DEBUG",
+            #         "handlers": ["console"],
+            #     }
+            # },
         },
     )
 
