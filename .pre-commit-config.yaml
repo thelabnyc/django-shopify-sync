@@ -1,0 +1,22 @@
+repos:
+  - repo: https://gitlab.com/thelabnyc/thelab-pre-commit-hooks
+    rev: r0.0.1
+    hooks:
+      - id: update-copyright-year
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  - repo: https://github.com/psf/black
+    rev: "24.4.2"
+    hooks:
+      - id: black
+        types: [file, python]

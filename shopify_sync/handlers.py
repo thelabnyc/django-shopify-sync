@@ -4,35 +4,42 @@ log = logging.getLogger(__name__)
 
 
 def get_topic_model(topic, data):
-    from .models import (CustomCollection, Customer, Order, Product, Shop,
-                         SmartCollection, Metafield)
+    from .models import (
+        CustomCollection,
+        Customer,
+        Order,
+        Product,
+        Shop,
+        SmartCollection,
+        Metafield,
+    )
 
     """
     Return the model related to the given topic, if it's a valid topic
     permitted by theme settings. If the topic isn't permitted, or there's
     no rule mapping the given topic to a model, None is returned.
     """
-    topic = topic.split('/')[0]
+    topic = topic.split("/")[0]
     mapping = {
-        'collections': SmartCollection if 'rules' in data else CustomCollection,
-        'products': Product,
-        'customers': Customer,
-        'orders': Order,
-        'metafields': Metafield,
-        'shop': Shop,
+        "collections": SmartCollection if "rules" in data else CustomCollection,
+        "products": Product,
+        "customers": Customer,
+        "orders": Order,
+        "metafields": Metafield,
+        "shop": Shop,
     }
     return mapping.get(topic, None)
 
 
 def get_topic_action(topic):
-    topic = topic.split('/')[1]
+    topic = topic.split("/")[1]
     mapping = {
-        'create': 'sync_one',
-        'update': 'sync_one',
-        'updated': 'sync_one',
-        'delete': 'delete',
-        'fulfilled': 'sync_one',
-        'orders/paid': 'sync_one',
+        "create": "sync_one",
+        "update": "sync_one",
+        "updated": "sync_one",
+        "delete": "delete",
+        "fulfilled": "sync_one",
+        "orders/paid": "sync_one",
     }
     return mapping.get(topic, None)
 
@@ -57,8 +64,8 @@ def webhook_received_handler(sender, domain, topic, data, **kwargs):
     shopify_resource = model.shopify_resource_from_json(data)
 
     # Execute the desired action.
-    if model_action == 'sync_one':
+    if model_action == "sync_one":
         model.objects.sync_one(shopify_resource)
-    elif model_action == 'delete':
+    elif model_action == "delete":
         model.objects.get(pk=data["id"]).delete()
-    assert model_action == 'sync_one', "The model action has to be sync_one"
+    assert model_action == "sync_one", "The model action has to be sync_one"
