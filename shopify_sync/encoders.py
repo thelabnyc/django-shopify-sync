@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
-import shopify
 from django.core.serializers.json import DjangoJSONEncoder
+import shopify
 
 
 def empty_list():

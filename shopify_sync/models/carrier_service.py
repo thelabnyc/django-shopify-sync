@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
-import shopify
 from django.db import models
+import shopify
 
 from .base import ShopifyResourceModel
 

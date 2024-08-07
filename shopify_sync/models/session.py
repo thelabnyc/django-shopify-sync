@@ -1,8 +1,10 @@
 from __future__ import unicode_literals
 
-from django.db import models
-from shopify import Session as ShopifySession, ShopifyResource
 from contextlib import contextmanager
+
+from django.db import models
+from shopify import Session as ShopifySession
+from shopify import ShopifyResource
 
 API_VERSION = "2024-01"
 

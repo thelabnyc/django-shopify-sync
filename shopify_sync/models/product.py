@@ -1,16 +1,17 @@
 from __future__ import unicode_literals
 
-import shopify
 import logging
+
 from django.db import models
+import shopify
 
 from .base import ShopifyDatedResourceModel
 from .collect import Collect
 from .image import Image
-from .option import Option
-from .variant import Variant
 from .metafield import Metafield
+from .option import Option
 from .session import activate_session
+from .variant import Variant
 
 log = logging.getLogger(__name__)
 

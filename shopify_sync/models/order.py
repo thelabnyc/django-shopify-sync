@@ -2,16 +2,16 @@ from __future__ import unicode_literals
 
 import json
 
-import shopify
 from django.db import models
 from jsonfield import JSONField
 from pyactiveresource.connection import ResourceInvalid
+import shopify
 
+from ..encoders import ShopifyDjangoJSONEncoder, empty_list
 from .base import ShopifyDatedResourceModel
 from .customer import Customer
 from .line_item import LineItem
 from .session import activate_session
-from ..encoders import ShopifyDjangoJSONEncoder, empty_list
 
 
 class Order(ShopifyDatedResourceModel):

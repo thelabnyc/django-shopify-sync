@@ -1,9 +1,10 @@
 from __future__ import unicode_literals
 
-import shopify
 from django.db import models
+import shopify
 
 from shopify_sync import SHOPIFY_API_PAGE_LIMIT
+
 from .base import ShopifyResourceModelBase
 from .customer import Customer
 

@@ -1,9 +1,10 @@
 from __future__ import unicode_literals
 
-import sys
-import django
-from django.conf import settings
 import logging
+import sys
+
+from django.conf import settings
+import django
 
 log = logging.getLogger()
 log.addHandler(logging.StreamHandler())

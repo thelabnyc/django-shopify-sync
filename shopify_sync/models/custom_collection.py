@@ -1,8 +1,8 @@
 from __future__ import unicode_literals
 
-import shopify
 from django.db import models
 from jsonfield import JSONField
+import shopify
 
 from ..encoders import ShopifyDjangoJSONEncoder
 from .base import ShopifyResourceModel

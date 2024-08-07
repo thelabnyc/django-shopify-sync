@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
-import logging
 from copy import copy
+import logging
 
 from django.core.serializers.json import DjangoJSONEncoder
 from django.db import models, utils
@@ -9,7 +9,6 @@ from django.db.models.fields.related import ForeignObjectRel
 from pyactiveresource.connection import ResourceNotFound
 
 from .. import SHOPIFY_API_PAGE_LIMIT
-
 from .session import Session, ShopifyResource, ShopifySession, activate_session
 
 log = logging.getLogger(__name__)

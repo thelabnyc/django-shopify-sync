@@ -2,6 +2,7 @@
 
 from django.db import migrations, models
 import jsonfield.fields
+
 import shopify_sync.encoders
 
 

@@ -7,11 +7,11 @@ def get_topic_model(topic, data):
     from .models import (
         CustomCollection,
         Customer,
+        Metafield,
         Order,
         Product,
         Shop,
         SmartCollection,
-        Metafield,
     )
 
     """

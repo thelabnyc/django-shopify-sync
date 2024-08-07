@@ -1,8 +1,8 @@
 from __future__ import unicode_literals
 
-import shopify
 from django.apps import apps
 from django.db import models
+import shopify
 
 from .base import ShopifyDatedResourceModel
 

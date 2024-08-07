@@ -1,11 +1,11 @@
 from __future__ import unicode_literals
 
+from pprint import pformat
 from unittest import mock
 
-from . import SyncTestCase
 from ..models import Product
+from . import SyncTestCase
 from .recipes import SessionRecipe
-from pprint import pformat
 
 
 class JSONEncodingTestCase(SyncTestCase):

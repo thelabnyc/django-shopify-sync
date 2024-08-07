@@ -1,8 +1,10 @@
-from shopify_sync.models.base import ShopifyResourceManager
-from shopify_sync.models import Session
-from .test_helpers import TestCase
-from ..models.session import API_VERSION
 import shopify
+
+from shopify_sync.models import Session
+from shopify_sync.models.base import ShopifyResourceManager
+
+from ..models.session import API_VERSION
+from .test_helpers import TestCase
 
 
 class ShopifyFoo(shopify.base.ShopifyResource):

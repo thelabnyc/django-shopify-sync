@@ -29,3 +29,7 @@ psycopg2-binary = "^2.8.5"
 ipdb = "^0.13.3"
 flake8 = "^7.1.0"
 tox = "^4.16.0"
+
+[tool.isort]
+profile = "black"
+from_first = true

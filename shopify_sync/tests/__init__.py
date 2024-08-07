@@ -1,9 +1,10 @@
 from __future__ import unicode_literals
 
-from shopify_webhook.tests import WebhookTestCase
 from datetime import datetime
-from dateutil import parser
 from decimal import Decimal
+
+from dateutil import parser
+from shopify_webhook.tests import WebhookTestCase
 
 
 class SyncTestCase(WebhookTestCase):
