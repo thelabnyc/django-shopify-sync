@@ -355,18 +355,22 @@ files = [
 ]
 
 [[package]]
-name = "model-mommy"
-version = "2.0.0"
+name = "model-bakery"
+version = "1.18.2"
 description = "Smart object creation facility for Django."
 optional = false
-python-versions = "*"
+python-versions = ">=3.8"
 files = [
-    {file = "model_mommy-2.0.0-py2.py3-none-any.whl", hash = "sha256:40d6e740aad7509e696a324b94cf2b0a104da93c3d4a7924cea1be3d0eb95b4f"},
-    {file = "model_mommy-2.0.0.tar.gz", hash = "sha256:3d332afce941c57f1990f45b083ba13252ba74fcd1ae43fd047e5af7a70fb312"},
+    {file = "model_bakery-1.18.2-py3-none-any.whl", hash = "sha256:fd13a251d20db78b790d80f75350a73af5d199e5151227b5dd35cb76f2f08fe8"},
+    {file = "model_bakery-1.18.2.tar.gz", hash = "sha256:8f8ab4ba26a206ed848da9b1740b5006b5eeca8a67389efb28dbff37b362e802"},
 ]
 
 [package.dependencies]
-django = ">=1.11.0"
+django = ">=4.2"
+
+[package.extras]
+docs = ["myst-parser", "sphinx", "sphinx-rtd-theme"]
+test = ["black", "coverage", "mypy", "pillow", "pytest", "pytest-django", "ruff"]
 
 [[package]]
 name = "packaging"
@@ -866,4 +870,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "e2a15573985bfdb04ea055bef7bf32862824e81350358bc6be75a91fe8966e84"
+content-hash = "6b963ea5aa706931b0cf062cf6dbe17ec4f6d2287d874a098dd365b22e5f61c4"
