@@ -18,7 +18,7 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.10"
 django = ">=4.2"
-django-shopify-webhook = ">=0.2.6"
+django-shopify-webhook = ">=0.6.0"
 ShopifyAPI = "^12.2"
 jsonfield = ">=0.9.22"
 
