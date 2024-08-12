@@ -739,12 +739,12 @@ test = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "importlib-metadata
 
 [[package]]
 name = "shopifyapi"
-version = "12.4.0"
+version = "12.6.0"
 description = "Shopify API for Python"
 optional = false
 python-versions = "*"
 files = [
-    {file = "ShopifyAPI-12.4.0.tar.gz", hash = "sha256:98eb0be9c0dcfa7214b5555e0d3bfc96a68d8f3c48799c85b46c98e37e642cc8"},
+    {file = "shopifyapi-12.6.0.tar.gz", hash = "sha256:81118403ff01426a81fc4db17fcdb914b75837bd4f38120844f84989cf29e8a0"},
 ]
 
 [package.dependencies]
@@ -884,4 +884,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "a5de6220a04702e6427b843632b6c59bb5d038922fa09deeba8ad671f136a2b6"
+content-hash = "96492739b1f0fe6e4fd76dced36590af9654df96b671d88a40fd2f7d7f44fd2a"
