@@ -1,5 +1,13 @@
 # Changes
 
+## v3.0.0 (2024-08-31)
+
+### Fix
+
+- **deps**: update dependency shopifyapi to ^12.6.0
+- **deps**: update dependency jsonfield to >=3.1.0
+- **deps**: update dependency django-shopify-webhook to >=0.6.0
+
 ## v3.0.0a0 (2024-08-07)
 
 ### BREAKING CHANGE

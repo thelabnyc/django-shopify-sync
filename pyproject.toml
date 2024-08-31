@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "django-shopify-sync"
-version = "3.0.0a0"
+version = "3.0.0"
 description = "A package for synchronizing Django models with Shopify resources."
 authors = ["thelab <thelabdev@thelab.co>"]
 readme = "README.md"
