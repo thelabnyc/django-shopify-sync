@@ -13,7 +13,7 @@ test:
   stage: test
   image: "registry.gitlab.com/thelabnyc/python:${IMAGE}"
   services:
-    - name: postgres:16
+    - name: postgres:17
       alias: db
   script:
     - pip install tox
