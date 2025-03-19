@@ -28,7 +28,7 @@ psycopg2-binary = "^2.9.10"
 ipdb = "^0.13.13"
 flake8 = "^7.1.2"
 tox = "^4.24.2"
-coverage = "^7.6.12"
+coverage = "^7.7.0"
 model-bakery = "^1.20.4"
 
 [tool.isort]
