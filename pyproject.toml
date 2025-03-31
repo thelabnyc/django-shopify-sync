@@ -27,7 +27,7 @@ python-dateutil = "^2.9.0"
 psycopg2-binary = "^2.9.10"
 ipdb = "^0.13.13"
 flake8 = "^7.1.2"
-tox = "^4.24.2"
+tox = "^4.25.0"
 coverage = "^7.7.1"
 model-bakery = "^1.20.4"
 
