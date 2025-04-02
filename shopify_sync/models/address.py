@@ -52,7 +52,7 @@ class Address(ShopifyResourceModelBase):
 
     def __str__(self):
         if self.customer:
-            return "Address id=%s, Customer id=%s" % (self.id, self.customer_id)
+            return f"Address id={self.id}, Customer id={self.customer_id}"
         else:
             return "Address id=%s" % self.id
 

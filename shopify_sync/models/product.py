@@ -102,8 +102,8 @@ class Product(ShopifyDatedResourceModel):
                     id=defaults["id"], defaults=defaults
                 )
                 _new = "Created" if created else "Updated"
-                log.debug("%s metafield for product %s <%s>" % (_new, self, instance))
-        super(Product, self).save(*args, **kwargs)
+                log.debug(f"{_new} metafield for product {self} <{instance}>")
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title

@@ -21,6 +21,7 @@ from shopify_sync.models.__init__ import (
 )
 
 
+@admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = (
         "name",
@@ -34,6 +35,7 @@ class AddressInline(admin.TabularInline):
     model = Address
 
 
+@admin.register(Customer)
 class CustomerAdmin(admin.ModelAdmin):
     inlines = [
         AddressInline,
@@ -44,12 +46,10 @@ admin.site.register(Address)
 admin.site.register(CarrierService)
 admin.site.register(Collect)
 admin.site.register(CustomCollection)
-admin.site.register(Customer, CustomerAdmin)
 admin.site.register(Image)
 admin.site.register(LineItem)
 admin.site.register(Metafield)
 admin.site.register(Option)
-admin.site.register(Order, OrderAdmin)
 admin.site.register(Product)
 admin.site.register(ScriptTag)
 admin.site.register(Session)
