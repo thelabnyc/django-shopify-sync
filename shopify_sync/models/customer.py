@@ -49,7 +49,7 @@ class Customer(ShopifyDatedResourceModel):
         return Order.objects.filter(customer=self)
 
     def __str__(self):
-        return "%s %s" % (
+        return "{} {}".format(
             self.first_name or "",
             self.last_name or "",
         )

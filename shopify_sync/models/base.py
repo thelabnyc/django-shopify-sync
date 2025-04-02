@@ -12,7 +12,7 @@ from .session import Session, ShopifyResource, ShopifySession, activate_session
 log = logging.getLogger(__name__)
 
 
-class ChangedFields(object):
+class ChangedFields:
     """
     Keeps track of fields that have changed since model instantiation, and on
     save updates only those fields.
@@ -28,7 +28,7 @@ class ChangedFields(object):
     related_classes = (models.ManyToManyField, ForeignObjectRel)
 
     def __init__(self, *args, **kwargs):
-        super(ChangedFields, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         self._changed_fields = {
             "id": self.id,
@@ -41,7 +41,7 @@ class ChangedFields(object):
                 and self.__dict__[name].__class__ not in self.related_classes
             ):
                 old = getattr(self, name)
-                super(ChangedFields, self).__setattr__(
+                super().__setattr__(
                     name, value
                 )  # A parent's __setattr__ may change value.
                 new = getattr(self, name)
@@ -58,10 +58,10 @@ class ChangedFields(object):
                         changed_fields[name] = copy(str(new))
 
             else:
-                super(ChangedFields, self).__setattr__(name, value)
+                super().__setattr__(name, value)
 
         else:
-            super(ChangedFields, self).__setattr__(name, value)
+            super().__setattr__(name, value)
 
 
 class ShopifyResourceManager(models.Manager):
@@ -170,7 +170,7 @@ class ShopifyResourceManager(models.Manager):
         # don't sync children if set to False
         if not sync_children:
             _new = "Created" if created else "Updated"
-            log.debug("%s <%s> (alone)" % (_new, instance))
+            log.debug(f"{_new} <{instance}> (alone)")
             return instance
 
         # Synchronise any child fields.
@@ -208,7 +208,7 @@ class ShopifyResourceManager(models.Manager):
                 )
 
         _new = "Created" if created else "Updated"
-        log.debug("%s <%s>" % (_new, instance))
+        log.debug(f"{_new} <{instance}>")
 
         # show sync progress
         print(".", end="")
@@ -384,7 +384,7 @@ class ShopifyResourceManager(models.Manager):
                     raise e
 
         if not successful:
-            message = "[Shopify API Errors]: {0}".format(
+            message = "[Shopify API Errors]: {}".format(
                 ",\n".join(shopify_resource.errors.full_messages())
             )
             log.error(message)
@@ -671,12 +671,12 @@ class ShopifyResourceModelBase(ChangedFields, models.Model):
         if push:
             session = kwargs.pop("session", None)
             session = session if session else self.session
-            log.info("Pushing '%s' (%s) to %s" % (self, self.id, session.site))
+            log.info(f"Pushing '{self}' ({self.id}) to {session.site}")
             self = self.manager.push_one(self, session=session, *args, **kwargs)
             # have to save so that we can get the id if it is new
             kwargs.pop("sync_children", None)  # remove option field
-            super(ShopifyResourceModelBase, self).save(*args, **kwargs)
-        super(ShopifyResourceModelBase, self).save(*args, **kwargs)
+            super().save(*args, **kwargs)
+        super().save(*args, **kwargs)
 
     class Meta:
         abstract = True

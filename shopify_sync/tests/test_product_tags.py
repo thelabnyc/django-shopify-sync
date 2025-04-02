@@ -15,12 +15,12 @@ class ProductTagBaseCase(TestCase):
     @staticmethod
     def assertContains(larger, smaller):
         for i in smaller.split(", "):
-            assert i in larger, "'%s' is NOT in '%s'" % (i, larger)
+            assert i in larger, f"'{i}' is NOT in '{larger}'"
 
     @staticmethod
     def assertNotContains(larger, smaller):
         for i in smaller.split(", "):
-            assert i not in larger, "'%s' is in '%s'" % (i, larger)
+            assert i not in larger, f"'{i}' is in '{larger}'"
 
 
 class ProductSingleTagAddTestCase(ProductTagBaseCase):

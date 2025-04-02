@@ -25,9 +25,7 @@ class TestCase(unittest.TestCase):
         self.http.site = "https://this-is-my-test-show.myshopify.com"
 
     def load_fixture(self, name, format="json"):
-        with open(
-            os.path.dirname(__file__) + "/fixtures/%s.%s" % (name, format), "rb"
-        ) as f:
+        with open(os.path.dirname(__file__) + f"/fixtures/{name}.{format}", "rb") as f:
             return f.read()
 
     def fake(self, endpoint, **kwargs):
@@ -41,7 +39,7 @@ class TestCase(unittest.TestCase):
         else:
             extension = ".%s" % (kwargs.pop("extension", "json"))
 
-        url = "https://this-is-my-test-show.myshopify.com%s/%s%s" % (
+        url = "https://this-is-my-test-show.myshopify.com{}/{}{}".format(
             prefix,
             endpoint,
             extension,
@@ -53,7 +51,7 @@ class TestCase(unittest.TestCase):
 
         headers = {}
         if kwargs.pop("has_user_agent", True):
-            userAgent = "ShopifyPythonAPI/%s Python/%s" % (
+            userAgent = "ShopifyPythonAPI/{} Python/{}".format(
                 shopify.VERSION,
                 sys.version.split(" ", 1)[0],
             )

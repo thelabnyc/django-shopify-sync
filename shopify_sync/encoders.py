@@ -15,4 +15,4 @@ class ShopifyDjangoJSONEncoder(DjangoJSONEncoder):
             return str(obj)
         if isinstance(obj, shopify.ShopifyResource) and getattr(obj, "attributes"):
             return obj.attributes
-        return super(ShopifyDjangoJSONEncoder, self).default(obj)
+        return super().default(obj)

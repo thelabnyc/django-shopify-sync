@@ -34,11 +34,11 @@ class JSONEncodingTestCase(SyncTestCase):
         # Verify the converted version and the JSON fixture are the same.
         string = """Local JSON encoding produces same JSON as fixture.
 fixture json
-%s
+{}
 ================
 Local json
-%s
-""" % (
+{}
+""".format(
             pformat(fixture_json),
             pformat(local_json),
         )
