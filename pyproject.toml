@@ -23,7 +23,7 @@ ShopifyAPI = "^12.7.0"
 jsonfield = ">=3.1.0"
 
 [tool.poetry.group.dev.dependencies]
-python-dateutil = "2.9.0"
+python-dateutil = "2.9.0.post0"
 psycopg2-binary = "2.9.10"
 ipdb = "0.13.13"
 flake8 = "7.2.0"
