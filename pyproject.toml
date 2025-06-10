@@ -29,7 +29,7 @@ ipdb = "0.13.13"
 flake8 = "7.2.0"
 tox = "4.26.0"
 coverage = "7.8.2"
-model-bakery = "1.20.4"
+model-bakery = "1.20.5"
 
 [tool.isort]
 profile = "black"
