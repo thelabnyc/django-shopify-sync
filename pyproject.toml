@@ -1,35 +1,43 @@
 [build-system]
-requires = [ "poetry-core>=2.1.2",]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.poetry]
+[project]
 name = "django-shopify-sync"
 version = "3.0.0"
 description = "A package for synchronizing Django models with Shopify resources."
-authors = ["thelab <thelabdev@thelab.co>"]
 readme = "README.md"
-homepage = "https://gitlab.com/thelabnyc/django-shopify-sync"
-repository = "https://gitlab.com/thelabnyc/django-shopify-sync"
-license = "MIT"
-packages = [
-    {include = "shopify_sync"}
+license = { text = "MIT" }
+dependencies = [
+    "django (>=4.2)",
+    "django-shopify-webhook (>=0.6.0,<0.8.0)",
+    "ShopifyAPI (>=12.7.0,<13)",
+    "jsonfield (>=3.1.0)",
+]
+requires-python = ">=3.11"
+
+[[project.authors]]
+name = "thelab"
+email = "thelabdev@thelab.co"
+
+[project.urls]
+Homepage = "https://gitlab.com/thelabnyc/django-shopify-sync"
+Repository = "https://gitlab.com/thelabnyc/django-shopify-sync"
+
+[dependency-groups]
+dev = [
+    "python-dateutil (==2.9.0.post0)",
+    "psycopg2-binary (==2.9.10)",
+    "ipdb (==0.13.13)",
+    "flake8 (==7.3.0)",
+    "tox (==4.27.0)",
+    "coverage (==7.9.1)",
+    "model-bakery (==1.20.5)",
+    "tox-uv>=1.26.1",
 ]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-django = ">=4.2"
-django-shopify-webhook = ">=0.6.0,<0.8.0"
-ShopifyAPI = "^12.7.0"
-jsonfield = ">=3.1.0"
-
-[tool.poetry.group.dev.dependencies]
-python-dateutil = "2.9.0.post0"
-psycopg2-binary = "2.9.10"
-ipdb = "0.13.13"
-flake8 = "7.3.0"
-tox = "4.27.0"
-coverage = "7.9.1"
-model-bakery = "1.20.5"
+[tool.hatch.build.targets.wheel]
+packages = ["shopify_sync"]
 
 [tool.isort]
 profile = "black"
@@ -42,14 +50,8 @@ gpg_sign = true
 tag_format = "v$version"
 update_changelog_on_bump = true
 changelog_merge_prerelease = true
-version_provider = "poetry"
+version_provider = "pep621"
 version_scheme = "pep440"
-version_files = [
-    "pyproject.toml:version",
-]
-pre_bump_hooks = [
-    "pre-commit run --all-files || true",
-]
-post_bump_hooks = [
-    "git push origin master $CZ_POST_CURRENT_TAG_VERSION"
-]
+version_files = ["pyproject.toml:version"]
+pre_bump_hooks = ["pre-commit run --all-files || true", "uv build"]
+post_bump_hooks = ["git push origin master $CZ_POST_CURRENT_TAG_VERSION"]
