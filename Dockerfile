@@ -4,4 +4,4 @@ RUN mkdir /code
 WORKDIR /code
 
 ADD . /code/
-RUN poetry install --no-interaction
+RUN uv sync

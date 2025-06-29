@@ -16,8 +16,8 @@ test:
     - name: postgres:17@sha256:6cf6142afacfa89fb28b894d6391c7dcbf6523c33178bdc33e782b3b533a9342
       alias: db
   script:
-    - pip install tox
-    - tox
+    - uv sync --all-extras
+    - uv run tox
   parallel:
     matrix:
       - IMAGE: py311
