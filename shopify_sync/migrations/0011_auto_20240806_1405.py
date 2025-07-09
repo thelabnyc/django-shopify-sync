@@ -7,7 +7,6 @@ import shopify_sync.encoders
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("shopify_sync", "0010_auto_20230222_1647"),
     ]

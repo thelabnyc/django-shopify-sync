@@ -4,7 +4,6 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("shopify_sync", "0005_remove_customer_default_address"),
     ]

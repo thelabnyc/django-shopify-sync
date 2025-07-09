@@ -99,7 +99,7 @@ class ShopifyResourceManager(models.Manager):
             shopify_resource = obj.shopify_resource
         else:
             raise AttributeError(
-                "Object must have a shopify_resouce attr or " "be a ShopifyResource"
+                "Object must have a shopify_resouce attr or be a ShopifyResource"
             )
         # Synchronise any related model field.
         msg = "Syncing shopify resource '%s'" % str(shopify_resource)
@@ -332,8 +332,7 @@ class ShopifyResourceManager(models.Manager):
         """
         if create and not force:
             raise AttributeError(
-                "Cannot have 'create' kwarg be True without"
-                "having 'force' also be True."
+                "Cannot have 'create' kwarg be True withouthaving 'force' also be True."
             )
         session = instance.session
         # We don't need to push to shopify if there is nothing that has
@@ -597,13 +596,13 @@ class ShopifyResourceModelBase(ChangedFields, models.Model):
                 shopify_resource.attributes["billing_address"]["zip"] = "K0L 2W0"
             if not shopify_resource.attributes["billing_address"]["city"]:
                 # apparently PO boxes in Singapore don't need a city
-                shopify_resource.attributes["billing_address"][
-                    "city"
-                ] = "Shopify Sux Eggs"
+                shopify_resource.attributes["billing_address"]["city"] = (
+                    "Shopify Sux Eggs"
+                )
             if not shopify_resource.attributes["billing_address"]["address1"]:
                 # Apprently you only really need the zip.
                 shopify_resource.attributes["billing_address"]["address1"] = (
-                    "a';DROP TABLE customers; SELECT" "* FROM customers WHERE 't' = 't'"
+                    "a';DROP TABLE customers; SELECT* FROM customers WHERE 't' = 't'"
                 )
             if not shopify_resource.attributes["billing_address"]["country"]:
                 # Sadly this has to be a county shopify knows

@@ -5,7 +5,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("shopify_sync", "0003_merge_20190107_1818"),
     ]
