@@ -29,7 +29,7 @@ dev = [
     "python-dateutil (==2.9.0.post0)",
     "psycopg2-binary (==2.9.10)",
     "ipdb (==0.13.13)",
-    "flake8 (==7.3.0)",
+    "ruff (>=0.11.6)",
     "tox (==4.27.0)",
     "coverage (==7.9.2)",
     "model-bakery (==1.20.5)",
@@ -42,6 +42,9 @@ packages = ["shopify_sync"]
 [tool.isort]
 profile = "black"
 from_first = true
+
+[tool.ruff.lint.isort]
+from-first = true
 
 [tool.commitizen]
 name = "cz_conventional_commits"

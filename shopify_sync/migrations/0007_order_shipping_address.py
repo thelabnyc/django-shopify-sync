@@ -5,7 +5,6 @@ import jsonfield.fields
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("shopify_sync", "0006_auto_20190712_0702"),
     ]
