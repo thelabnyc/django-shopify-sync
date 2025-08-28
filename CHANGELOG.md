@@ -1,5 +1,24 @@
 # Changes
 
+## v3.1.0 (2025-08-28)
+
+### Feat
+
+- **Session**: Bump shopify api version to 2025-10
+- support Django 5.2 / Python 3.13. Drop Django 5.0 / Python 3.10
+
+### Fix
+
+- update docker image tag format
+- **deps**: update dependency shopifyapi to ^12.7.0
+
+### Refactor
+
+- migrate black/flake8 -> ruff
+- fix pre-commit config
+- migrate from poetry -> uv
+- add pyupgrade / django-upgrade precommit hooks
+
 ## v3.0.0 (2024-08-31)
 
 ### Fix
