@@ -1,5 +1,11 @@
 # Changes
 
+## v3.1.1 (2025-09-03)
+
+### Fix
+
+- **deps**: update dependency django-shopify-webhook to >=0.8.0,<0.9.0
+
 ## v3.1.0 (2025-08-28)
 
 ### Feat
