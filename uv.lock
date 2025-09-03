@@ -160,7 +160,7 @@ wheels = [
 
 [[package]]
 name = "django-shopify-sync"
-version = "3.1.0"
+version = "3.1.1"
 source = { editable = "." }
 dependencies = [
     { name = "django" },
@@ -198,7 +198,7 @@ dev = [
     { name = "python-dateutil", specifier = "==2.9.0.post0" },
     { name = "ruff", specifier = ">=0.11.6" },
     { name = "tox", specifier = "==4.29.0" },
-    { name = "tox-uv", specifier = ">=1.26.1" },
+    { name = "tox-uv", specifier = ">=1.28.0" },
 ]
 
 [[package]]
