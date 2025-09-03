@@ -184,7 +184,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "django", specifier = ">=4.2" },
-    { name = "django-shopify-webhook", specifier = ">=0.6.0,<0.8.0" },
+    { name = "django-shopify-webhook", specifier = ">=0.8.0,<0.9.0" },
     { name = "jsonfield", specifier = ">=3.1.0" },
     { name = "shopifyapi", specifier = ">=12.7.0,<13" },
 ]
@@ -203,13 +203,13 @@ dev = [
 
 [[package]]
 name = "django-shopify-webhook"
-version = "0.6.0"
+version = "0.8.0"
 source = { registry = "https://gitlab.com/api/v4/groups/269576/-/packages/pypi/simple" }
 dependencies = [
     { name = "django" },
     { name = "setuptools" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/f9/14/8665a31e312ea9e2af875df69fc6053fefc30db5a4254f0dd27c5b4d7ed4/django-shopify-webhook-0.6.0.tar.gz", hash = "sha256:9c3199847e66ea9d8680a2149a252eaa9ab81eb835643528ccd86df5417d5794", size = 6831, upload-time = "2022-05-08T16:25:17.307Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/38/fe/02239c442d721dbabf61369683cdd3d7be8e223603199b5b7fd0229f9371/django_shopify_webhook-0.8.0.tar.gz", hash = "sha256:d5b79195b85e056b211a950bad82533ccf2eb841edd0b7edbd779b78b20933b6", size = 7129, upload-time = "2025-02-28T14:46:29.495Z" }
 
 [[package]]
 name = "executing"
