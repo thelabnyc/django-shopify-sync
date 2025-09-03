@@ -10,7 +10,7 @@ class ProductSyncTestCase(SyncTestCase):
         # Send a test "product created" webhook.
         data = self.read_fixture("product_created")
         response = self.post_shopify_webhook(
-            topic="products/create", domain=session.site, data=data
+            topic="products/create", domain=session.site, data=data, webhook_id="123458"
         )
 
         # Verify that the synchronisation occurred.
