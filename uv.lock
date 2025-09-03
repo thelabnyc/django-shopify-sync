@@ -198,7 +198,7 @@ dev = [
     { name = "python-dateutil", specifier = "==2.9.0.post0" },
     { name = "ruff", specifier = ">=0.12.11" },
     { name = "tox", specifier = "==4.29.0" },
-    { name = "tox-uv", specifier = ">=1.26.1" },
+    { name = "tox-uv", specifier = ">=1.28.0" },
 ]
 
 [[package]]
