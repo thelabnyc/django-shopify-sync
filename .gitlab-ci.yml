@@ -13,7 +13,7 @@ test:
   stage: test
   image: "registry.gitlab.com/thelabnyc/python:${IMAGE}"
   services:
-    - name: postgres:17@sha256:cecd364cc7ec03ab6148ab650efc5200548a89fd2e4f47a8ba6e6cf08c18805d
+    - name: postgres:17@sha256:14d1abe0b1c660ec3c7521786d1249157699ebc62b07ea84ab6aad5239f5251f
       alias: db
   script:
     - uv sync --all-extras
