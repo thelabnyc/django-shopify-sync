@@ -9,7 +9,7 @@ description = "A package for synchronizing Django models with Shopify resources.
 readme = "README.md"
 license = { text = "MIT" }
 dependencies = [
-    "django (>=4.2)",
+    "django (>=5.2)",
     "django-shopify-webhook (>=0.8.0,<0.9.0)",
     "ShopifyAPI (>=12.7.0,<13)",
     "jsonfield (>=3.2.0)",
