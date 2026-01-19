@@ -226,7 +226,7 @@ requires-dist = [
 dev = [
     { name = "coverage", specifier = "==7.13.1" },
     { name = "ipdb", specifier = "==0.13.13" },
-    { name = "model-bakery", specifier = "==1.21.0" },
+    { name = "model-bakery", specifier = "==1.22.0" },
     { name = "psycopg2-binary", specifier = "==2.9.11" },
     { name = "python-dateutil", specifier = "==2.9.0.post0" },
     { name = "ruff", specifier = ">=0.14.13" },
@@ -349,15 +349,15 @@ wheels = [
 
 [[package]]
 name = "model-bakery"
-version = "1.21.0"
+version = "1.22.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django", version = "5.2.10", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
     { name = "django", version = "6.0.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/8a/e3/2c20166113b6803053d2eabe9cf1a40eab72ee8bc158a32f181c1a4de5f3/model_bakery-1.21.0.tar.gz", hash = "sha256:ea5f579782e6ac521e49acb02f7454b91d24a1f7e602505006fbd4374be1aa94", size = 21786, upload-time = "2025-12-30T11:47:29.012Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/16/9a/d49a95024d9af86ab89119ba00a3e2d80e2ad486bfd4db2a2f8cd1021525/model_bakery-1.22.0.tar.gz", hash = "sha256:d2ae15a924e4e2a51c6bb58fe7c9ef86abb5bcfdb7659b7c157ce2d9e58567db", size = 22831, upload-time = "2026-01-16T14:14:19.362Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/a6/f2/acf1d319738ccdfd88c9f6f76161107a6ae208f3b2f59dd4c94ed40e1b7e/model_bakery-1.21.0-py3-none-any.whl", hash = "sha256:46df25eb2a0583d595ed5503caf434b4ce91c729456c5abfcb130594c1803c6f", size = 24788, upload-time = "2025-12-30T11:47:28.153Z" },
+    { url = "https://files.pythonhosted.org/packages/41/e0/f4649bc78a4b85e93c2deca3eec14f656349e61cb3ca6356704753b2e699/model_bakery-1.22.0-py3-none-any.whl", hash = "sha256:1551d87884e1a7129bc225ee28525f942e6804049c8c71633564ba521a0b7f10", size = 25773, upload-time = "2026-01-16T14:14:18.5Z" },
 ]
 
 [[package]]
