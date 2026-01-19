@@ -226,7 +226,7 @@ requires-dist = [
 dev = [
     { name = "coverage", specifier = "==7.13.1" },
     { name = "ipdb", specifier = "==0.13.13" },
-    { name = "model-bakery", specifier = "==1.22.0" },
+    { name = "model-bakery", specifier = "==1.22.1" },
     { name = "psycopg2-binary", specifier = "==2.9.11" },
     { name = "python-dateutil", specifier = "==2.9.0.post0" },
     { name = "ruff", specifier = ">=0.14.13" },
@@ -349,15 +349,15 @@ wheels = [
 
 [[package]]
 name = "model-bakery"
-version = "1.22.0"
+version = "1.22.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django", version = "5.2.10", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
     { name = "django", version = "6.0.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/16/9a/d49a95024d9af86ab89119ba00a3e2d80e2ad486bfd4db2a2f8cd1021525/model_bakery-1.22.0.tar.gz", hash = "sha256:d2ae15a924e4e2a51c6bb58fe7c9ef86abb5bcfdb7659b7c157ce2d9e58567db", size = 22831, upload-time = "2026-01-16T14:14:19.362Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/d1/b7/32f483771644c09cb80c7c7139d4003cab781c37153a581011834232edbd/model_bakery-1.22.1.tar.gz", hash = "sha256:b9792a1bb56b928077624d87b1a403237e7e08d451c79f83b03d8160a3013566", size = 22794, upload-time = "2026-01-16T18:06:46.184Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/41/e0/f4649bc78a4b85e93c2deca3eec14f656349e61cb3ca6356704753b2e699/model_bakery-1.22.0-py3-none-any.whl", hash = "sha256:1551d87884e1a7129bc225ee28525f942e6804049c8c71633564ba521a0b7f10", size = 25773, upload-time = "2026-01-16T14:14:18.5Z" },
+    { url = "https://files.pythonhosted.org/packages/9d/1f/346a161dd90faeaee3c569449d8a60f3dc2988061784fe6b2f3ec5257710/model_bakery-1.22.1-py3-none-any.whl", hash = "sha256:3a12a3fcf813257432ec94105d56a5299ba145a175593344c671fbddff0c0d7a", size = 25149, upload-time = "2026-01-16T18:06:44.899Z" },
 ]
 
 [[package]]
