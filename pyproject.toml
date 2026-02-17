@@ -32,7 +32,7 @@ dev = [
     "ruff (>=0.15.0)",
     "tox (==4.34.1)",
     "coverage (==7.13.4)",
-    "model-bakery (==1.23.2)",
+    "model-bakery (==1.23.3)",
     "tox-uv>=1.29.0",
 ]
 
