@@ -33,7 +33,7 @@ dev = [
     "tox (==4.47.0)",
     "coverage (==7.13.4)",
     "model-bakery (==1.23.3)",
-    "tox-uv>=1.33.0",
+    "tox-uv>=1.33.1",
 ]
 
 [tool.hatch.build.targets.wheel]
