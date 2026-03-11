@@ -16,10 +16,10 @@ class Customer(ShopifyDatedResourceModel):
     last_order_id = models.BigIntegerField(null=True)
     last_order_name = models.CharField(max_length=128, null=True)
     note = models.TextField(null=True)
-    orders_count = models.IntegerField()
+    orders_count = models.IntegerField(null=True)
     state = models.CharField(max_length=32)
     tags = models.TextField()
-    total_spent = models.DecimalField(max_digits=10, decimal_places=2)
+    total_spent = models.DecimalField(max_digits=10, decimal_places=2, null=True)
     verified_email = models.BooleanField(default=False)
 
     class Meta:
