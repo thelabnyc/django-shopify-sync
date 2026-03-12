@@ -1,5 +1,17 @@
 # Changes
 
+## v3.2.0 (2026-03-12)
+
+### Feat
+
+- support Python 3.14
+
+### Fix
+
+- **deps**: update dependency django to >=5.2
+- prevent renovate from pointing all URLs at gitlab
+- **deps**: update dependency jsonfield to >=3.2.0
+
 ## v3.1.1 (2025-09-03)
 
 ### Fix
