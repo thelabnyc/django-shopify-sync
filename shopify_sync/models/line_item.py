@@ -11,7 +11,7 @@ class LineItem(ShopifyResourceModel):
     parent_field = "order_id"
 
     fulfillable_quantity = models.IntegerField()
-    fulfillment_service = models.CharField(max_length=32)
+    fulfillment_service = models.CharField(max_length=255)
     fulfillment_status = models.CharField(max_length=32, null=True)
     grams = models.DecimalField(max_digits=10, decimal_places=2)
     name = models.CharField(max_length=256)

@@ -19,4 +19,9 @@ class Migration(migrations.Migration):
             name="source_name",
             field=models.CharField(max_length=255),
         ),
+        migrations.AlterField(
+            model_name="lineitem",
+            name="fulfillment_service",
+            field=models.CharField(max_length=255),
+        ),
     ]
