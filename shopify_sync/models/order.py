@@ -55,7 +55,7 @@ class Order(ShopifyDatedResourceModel):
     number = models.IntegerField()
     order_number = models.BigIntegerField()
     processed_at = models.DateTimeField()
-    processing_method = models.CharField(max_length=32)
+    processing_method = models.CharField(max_length=255)
     referring_site = models.URLField(max_length=2048, null=True)
     shipping_address = JSONField(
         null=True, dump_kwargs={"cls": ShopifyDjangoJSONEncoder}
@@ -63,7 +63,7 @@ class Order(ShopifyDatedResourceModel):
     shipping_lines = JSONField(
         default=empty_list, dump_kwargs={"cls": ShopifyDjangoJSONEncoder}
     )
-    source_name = models.CharField(max_length=32)
+    source_name = models.CharField(max_length=255)
     tax_lines = JSONField(
         default=empty_list, dump_kwargs={"cls": ShopifyDjangoJSONEncoder}, null=True
     )

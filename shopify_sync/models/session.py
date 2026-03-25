@@ -4,7 +4,7 @@ from django.db import models
 from shopify import Session as ShopifySession
 from shopify import ShopifyResource
 
-API_VERSION = "2025-10"
+API_VERSION = "2026-01"
 
 
 class Session(models.Model):
