@@ -27,7 +27,7 @@ Repository = "https://gitlab.com/thelabnyc/django-shopify-sync"
 [dependency-groups]
 dev = [
     "python-dateutil (==2.9.0.post0)",
-    "psycopg2-binary (==2.9.11)",
+    "psycopg2-binary (==2.9.12)",
     "ipdb (==0.13.13)",
     "ruff (>=0.15.11)",
     "tox (==4.53.0)",
