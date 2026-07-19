@@ -29,7 +29,7 @@ dev = [
     "python-dateutil (==2.9.0.post0)",
     "psycopg2-binary (==2.9.12)",
     "ipdb (==0.13.13)",
-    "ruff (>=0.15.21)",
+    "ruff (>=0.15.22)",
     "tox (==4.56.4)",
     "coverage (==7.15.2)",
     "model-bakery (==1.24.0)",
