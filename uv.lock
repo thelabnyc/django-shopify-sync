@@ -217,7 +217,7 @@ dev = [
     { name = "model-bakery", specifier = "==1.24.0" },
     { name = "psycopg2-binary", specifier = "==2.9.12" },
     { name = "python-dateutil", specifier = "==2.9.0.post0" },
-    { name = "ruff", specifier = ">=0.15.22" },
+    { name = "ruff", specifier = ">=0.16.0" },
     { name = "tox", specifier = "==4.57.2" },
     { name = "tox-uv", specifier = ">=1.35.2" },
 ]
