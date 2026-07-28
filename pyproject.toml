@@ -30,10 +30,10 @@ dev = [
     "psycopg2-binary (==2.9.12)",
     "ipdb (==0.13.13)",
     "ruff (>=0.16.0)",
-    "tox (==4.57.2)",
+    "tox (==4.58.0)",
     "coverage (==7.15.2)",
     "model-bakery (==1.24.0)",
-    "tox-uv>=1.35.2",
+    "tox-uv>=1.36.0",
 ]
 
 [tool.hatch.build.targets.wheel]
