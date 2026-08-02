@@ -36,12 +36,7 @@ class SyncTestCase(WebhookTestCase):
                 # Assert values are equal.
                 if expected_value != actual_value:
                     print(
-                        "Field '%s' expected value is '%s' not '%s'"
-                        % (
-                            field,
-                            expected_value,
-                            actual_value,
-                        )
+                        f"Field '{field}' expected value is '{expected_value}' not '{actual_value}'"
                     )
                 self.assertEqual(expected_value, actual_value)
 

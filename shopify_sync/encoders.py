@@ -20,6 +20,6 @@ class ShopifyDjangoJSONEncoder(DjangoJSONEncoder):
         # Receipt objects") as it is unrelated to fulfillment tracking.
         if isinstance(obj, shopify.Receipt):
             return str(obj)
-        if isinstance(obj, shopify.ShopifyResource) and getattr(obj, "attributes"):
+        if isinstance(obj, shopify.ShopifyResource) and obj.attributes:
             return obj.attributes
         return super().default(obj)

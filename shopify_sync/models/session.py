@@ -22,7 +22,7 @@ class Session(models.Model):
         return shopify_session
 
     def __str__(self):
-        return "Session: %s" % self.site
+        return f"Session: {self.site}"
 
 
 @contextmanager
@@ -53,9 +53,9 @@ def activate_session(obj, session=None):
             shopify_resource.activate_session(shopify_resource.session)
             try:
                 yield shopify_resource
-            except Exception as err:
+            except Exception:
                 shopify_resource.clear_session()
-                raise err
+                raise
             else:
                 shopify_resource.clear_session()
         else:
@@ -73,9 +73,9 @@ def activate_session(obj, session=None):
                     session = Session.objects.get(site=site)
                 except models.DoesNotExist:
                     raise models.DoesNotExist(
-                        "The session for site '%s' does not exist. "
+                        f"The session for site '{site}' does not exist. "
                         "You must create a session first by having the "
-                        "site login first" % site
+                        "site login first"
                     )
                 else:
                     shopify_resource.session = session.to_shopify()
@@ -91,8 +91,7 @@ def activate_session(obj, session=None):
 
     else:
         raise TypeError(
-            "Object needs to be a Model, ShopifyResource, or Session not '%s'."
-            % type(obj)
+            f"Object needs to be a Model, ShopifyResource, or Session not '{type(obj)}'."
         )
 
     if not isinstance(shopify_resource, ShopifySession):
@@ -100,8 +99,8 @@ def activate_session(obj, session=None):
         shopify_resource.activate_session(shopify_resource.session)
     try:
         yield shopify_resource
-    except Exception as err:
+    except Exception:
         shopify_resource.clear_session()
-        raise err
+        raise
     else:
         shopify_resource.clear_session()

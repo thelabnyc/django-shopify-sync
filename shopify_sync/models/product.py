@@ -1,3 +1,4 @@
+from typing import ClassVar
 import logging
 
 from django.db import models
@@ -16,7 +17,7 @@ log = logging.getLogger(__name__)
 
 class Product(ShopifyDatedResourceModel):
     shopify_resource_class = shopify.resources.Product
-    child_fields = {
+    child_fields: ClassVar = {
         "images": Image,
         "variants": Variant,
         "options": Option,

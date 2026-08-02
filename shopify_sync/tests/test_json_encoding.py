@@ -90,14 +90,11 @@ class JSONEncodingTestCase(SyncTestCase):
             del fixture_json["session"]
 
         # Verify the converted version and the JSON fixture are the same.
-        string = """Local JSON encoding produces same JSON as fixture.
+        string = f"""Local JSON encoding produces same JSON as fixture.
 fixture json
-{}
+{pformat(fixture_json)}
 ================
 Local json
-{}
-""".format(
-            pformat(fixture_json),
-            pformat(local_json),
-        )
+{pformat(local_json)}
+"""
         self.assertEqual(local_json, fixture_json, msg=string)
