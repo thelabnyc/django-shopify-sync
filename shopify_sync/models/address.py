@@ -1,3 +1,5 @@
+from typing import ClassVar
+
 from django.db import models
 import shopify
 
@@ -26,8 +28,8 @@ class ShopifyAddress(shopify.base.ShopifyResource):
 class Address(ShopifyResourceModelBase):
     shopify_resource_class = ShopifyAddress
 
-    related_fields = ["customer"]
-    r_fields = {
+    related_fields: ClassVar = ["customer"]
+    r_fields: ClassVar = {
         "customer": Customer,
     }
 
@@ -54,7 +56,7 @@ class Address(ShopifyResourceModelBase):
         if self.customer:
             return f"Address id={self.id}, Customer id={self.customer_id}"
         else:
-            return "Address id=%s" % self.id
+            return f"Address id={self.id}"
 
     @property
     def _prefix_options(self):

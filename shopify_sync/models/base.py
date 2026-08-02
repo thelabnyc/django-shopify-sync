@@ -1,4 +1,5 @@
 from copy import copy
+from typing import ClassVar
 import logging
 
 from django.core.serializers.json import DjangoJSONEncoder
@@ -10,6 +11,10 @@ from .. import SHOPIFY_API_PAGE_LIMIT
 from .session import Session, ShopifyResource, ShopifySession, activate_session
 
 log = logging.getLogger(__name__)
+
+
+class ShopifyPushError(Exception):
+    pass
 
 
 class ChangedFields:
@@ -72,7 +77,7 @@ class ShopifyResourceManager(models.Manager):
     def sync_one(
         self,
         obj,
-        caller=None,  # noqa C901
+        caller=None,
         sync_children=True,
         sync_meta=False,
         *args,
@@ -102,15 +107,15 @@ class ShopifyResourceManager(models.Manager):
                 "Object must have a shopify_resouce attr or be a ShopifyResource"
             )
         # Synchronise any related model field.
-        msg = "Syncing shopify resource '%s'" % str(shopify_resource)
+        msg = f"Syncing shopify resource '{shopify_resource}'"
         if caller:
             # We need to take the session form the parent
             shopify_resource.session = caller.session
-            msg += " - called by parent resource '%s'" % str(caller)
+            msg += f" - called by parent resource '{caller}'"
         else:
             shopify_resource.session = Session.objects.first()
 
-        log.debug(msg + ", site '%s'" % shopify_resource.session.site)
+        log.debug(msg + f", site '{shopify_resource.session.site}'")
 
         # Not sync the related fields if we are not doing the children
         if sync_children:
@@ -137,9 +142,9 @@ class ShopifyResourceManager(models.Manager):
                 ) as related_shopify_resource:
                     related_model.objects.sync_one(
                         related_shopify_resource,
+                        *args,
                         caller=shopify_resource,
                         sync_meta=sync_meta,
-                        *args,
                         **kwargs,
                     )
 
@@ -165,7 +170,7 @@ class ShopifyResourceManager(models.Manager):
                 f"Sync failed for resource: {shopify_resource} and defaults: {defaults} exception: {e}"
             )
             print("x", end="")
-            raise e
+            raise
 
         # don't sync children if set to False
         if not sync_children:
@@ -201,9 +206,9 @@ class ShopifyResourceManager(models.Manager):
             for related_model in related_models:
                 related_model.objects.sync_all(
                     shopify_resource.session,
+                    *args,
                     caller=shopify_resource,
                     sync_meta=sync_meta,
-                    *args,
                     **kwargs,
                 )
 
@@ -238,7 +243,7 @@ class ShopifyResourceManager(models.Manager):
                     setattr(
                         shopify_resource,
                         self.model.parent_field,
-                        getattr(parent_shopify_resource, "id"),
+                        parent_shopify_resource.id,
                     )
                 instance = self.sync_one(
                     shopify_resource,
@@ -246,7 +251,7 @@ class ShopifyResourceManager(models.Manager):
                     sync_meta=sync_meta,
                 )
                 instances.append(instance)
-            except Exception as e:
+            except Exception as e:  # noqa: BLE001
                 if (
                     type(e) is utils.IntegrityError
                     and "duplicate key value" in e.args[0]
@@ -276,7 +281,7 @@ class ShopifyResourceManager(models.Manager):
 
         # final newline after sync progress
         if "caller" not in kwargs:
-            print("")
+            print()
 
         return instances
 
@@ -339,9 +344,9 @@ class ShopifyResourceManager(models.Manager):
         # changed. We still do a sync with shopify. If we do have a create flag
         # we will want to make sure that we don't just do a sync
         if len(instance._changed_fields) == 1 and not (force or create):
-            log.info("No fields have changed, skipping push for '%s'" % instance)
-            with activate_session(instance, session=session) as instance:
-                return self.sync_one(instance, *args, **kwargs)
+            log.info(f"No fields have changed, skipping push for '{instance}'")
+            with activate_session(instance, session=session) as active_instance:
+                return self.sync_one(active_instance, *args, **kwargs)
         # We don't want to push everything we have to shopify. We really only
         # want to push the data that has changed. This prevents us pushing data
         # that is stale. The method we use is to take the attributes that the
@@ -355,13 +360,12 @@ class ShopifyResourceManager(models.Manager):
                 # we need to re set them
                 shopify_resource.attributes = instance._changed_fields
                 log.info(
-                    "Using only changed fields to push '%s': %s"
-                    % (shopify_resource, shopify_resource.attributes)
+                    f"Using only changed fields to push '{shopify_resource}': {shopify_resource.attributes}"
                 )
             # Save the Shopify resource.
             try:
                 successful = shopify_resource.save()
-            except ResourceNotFound as e:
+            except ResourceNotFound:
                 # When this fails, that means that there is no resource in shopify,
                 # then if we have a create kwarg, then we will create the resource,
                 # other wise we will just throw the error
@@ -377,17 +381,17 @@ class ShopifyResourceManager(models.Manager):
                         successful = shopify_resource.save()
                 else:
                     log.warning(
-                        "Resource '%s' could not be found!"
-                        "Use the kwarg 'create=True' to create." % shopify_resource
+                        f"Resource '{shopify_resource}' could not be found!"
+                        "Use the kwarg 'create=True' to create."
                     )
-                    raise e
+                    raise
 
         if not successful:
             message = "[Shopify API Errors]: {}".format(
                 ",\n".join(shopify_resource.errors.full_messages())
             )
             log.error(message)
-            raise Exception(message)
+            raise ShopifyPushError(message)
 
         with activate_session(shopify_resource, session=session) as shopify_resource:
             return self.sync_one(shopify_resource, *args, **kwargs)
@@ -422,8 +426,8 @@ class ShopifyResourceModelBase(ChangedFields, models.Model):
 
     shopify_resource_class = None
     parent_field = None
-    related_fields = []
-    child_fields = {}
+    related_fields: ClassVar = []
+    child_fields: ClassVar = {}
 
     objects = ShopifyResourceManager()
 
@@ -454,8 +458,8 @@ class ShopifyResourceModelBase(ChangedFields, models.Model):
         for related_field in cls.get_related_field_names():
             if hasattr(shopify_resource, related_field):
                 defaults[related_field + "_id"] = getattr(
-                    getattr(shopify_resource, related_field), "id"
-                )
+                    shopify_resource, related_field
+                ).id
             # sometimes related fields have an _id suffix, as in the case of `customer_id`
             related_field = related_field + "_id"
             if hasattr(shopify_resource, related_field):
@@ -526,8 +530,8 @@ class ShopifyResourceModelBase(ChangedFields, models.Model):
         built recursively using the given JSON object.
         """
         instance = cls.shopify_resource_class()
-        log.info("Creating shopify reasource '%s'" % str(instance))
-        log.debug("Using the following json: %s" % json)
+        log.info(f"Creating shopify reasource '{instance}'")
+        log.debug(f"Using the following json: {json}")
 
         # Recursively instantiate any child attributes.
         for child_field, child_model in cls.get_child_fields().items():
@@ -636,7 +640,7 @@ class ShopifyResourceModelBase(ChangedFields, models.Model):
                         setattr(instance, default_field, attribute_encoded)
 
         # Recursively instantiate any child attributes.
-        for child_field, child_model in self.get_child_fields().items():
+        for child_field in self.get_child_fields():
             if hasattr(self, child_field):
                 setattr(
                     instance,
@@ -671,7 +675,9 @@ class ShopifyResourceModelBase(ChangedFields, models.Model):
             session = kwargs.pop("session", None)
             session = session if session else self.session
             log.info(f"Pushing '{self}' ({self.id}) to {session.site}")
-            self = self.manager.push_one(self, session=session, *args, **kwargs)
+            self = self.manager.push_one(  # noqa: PLW0642
+                self, *args, session=session, **kwargs
+            )
             # have to save so that we can get the id if it is new
             kwargs.pop("sync_children", None)  # remove option field
             super().save(*args, **kwargs)

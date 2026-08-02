@@ -1,3 +1,4 @@
+from typing import ClassVar
 import json
 
 from django.db import models
@@ -14,11 +15,11 @@ from .session import activate_session
 
 class Order(ShopifyDatedResourceModel):
     shopify_resource_class = shopify.resources.Order
-    related_fields = ["customer"]
-    r_fields = {
+    related_fields: ClassVar = ["customer"]
+    r_fields: ClassVar = {
         "customer": Customer,
     }
-    child_fields = {
+    child_fields: ClassVar = {
         "line_items": LineItem,
     }
 

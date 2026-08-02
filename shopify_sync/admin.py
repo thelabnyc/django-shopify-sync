@@ -1,3 +1,5 @@
+from typing import ClassVar
+
 from django.contrib import admin
 
 from shopify_sync.models.__init__ import (
@@ -37,7 +39,7 @@ class AddressInline(admin.TabularInline):
 
 @admin.register(Customer)
 class CustomerAdmin(admin.ModelAdmin):
-    inlines = [
+    inlines: ClassVar = [
         AddressInline,
     ]
 

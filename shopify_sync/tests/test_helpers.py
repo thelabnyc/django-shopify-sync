@@ -37,12 +37,10 @@ class TestCase(unittest.TestCase):
         if "extension" in kwargs and not kwargs["extension"]:
             extension = ""
         else:
-            extension = ".%s" % (kwargs.pop("extension", "json"))
+            extension = ".{}".format(kwargs.pop("extension", "json"))
 
-        url = "https://this-is-my-test-show.myshopify.com{}/{}{}".format(
-            prefix,
-            endpoint,
-            extension,
+        url = (
+            f"https://this-is-my-test-show.myshopify.com{prefix}/{endpoint}{extension}"
         )
         try:
             url = kwargs["url"]

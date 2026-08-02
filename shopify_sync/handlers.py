@@ -59,7 +59,7 @@ def webhook_received_handler(sender, domain, topic, data, **kwargs):
 
     # Convert the incoming data to the relevant Shopify resource.
 
-    msg = "Creating model '%s' from webhook data" % model.__name__
+    msg = f"Creating model '{model.__name__}' from webhook data"
     log.info(msg)
     shopify_resource = model.shopify_resource_from_json(data)
 
