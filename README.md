@@ -21,6 +21,7 @@ First we will get some of the products from Shopify
 
 ```py
 from shopify_sync.models import Product, Session
+
 session = Session.objects.first()  # Assuming you have just one that you made previously
 products = Product.objects.sync_all(session, query="For bar")
 ```
