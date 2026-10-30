@@ -14,7 +14,7 @@ dependencies = [
     "ShopifyAPI (>=12.7.0,<13)",
     "jsonfield (>=3.2.0)",
 ]
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 
 [[project.authors]]
 name = "thelab"
