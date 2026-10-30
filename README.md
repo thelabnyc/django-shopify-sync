@@ -13,7 +13,7 @@ Where to get these fields:
 - **API Token**: In the Shopify admin, this is caleld "API Key Password".
 - **Site name**: If your domain is http://my-site.myshopify.com your site name is my-site.
 
-This package supports Python 3.X and Django>=4.2
+This package supports Python 3.X and Django>=5.2
 
 ## How to use
 
