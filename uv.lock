@@ -221,7 +221,7 @@ dev = [
     { name = "python-dateutil", specifier = "==2.9.0.post0" },
     { name = "ruff", specifier = ">=0.17.4" },
     { name = "tox", specifier = "==4.67.13" },
-    { name = "tox-uv", specifier = ">=1.37.6" },
+    { name = "tox-uv", specifier = ">=1.37.7" },
 ]
 
 [[package]]
